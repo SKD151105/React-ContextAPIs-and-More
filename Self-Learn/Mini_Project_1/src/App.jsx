@@ -1,17 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import InputBox from "./components/InputBox.jsx";
 import TaskBox from "./components/TaskBox.jsx";
 import CompletedTasks from "./components/CompletedTasks.jsx";
 
 function App() {
-  // const [count, setCount] = useState(0)
-  // An array of tasks to be displayed in the TaskBox components
-  const [tasks, setTasks] = useState([
-    { id: 1, text: "Learn React", completed: false },
-    { id: 2, text: "Build a project", completed: false },
-    { id: 3, text: "Deploy to production", completed: false },
-  ]);
+  const [tasks, setTasks] = useState(() => {
+    const savedTasks = localStorage.getItem("tasks");
+    if (savedTasks) {
+      return JSON.parse(savedTasks);
+    }
+    return [];
+  });
+
+  useEffect(() => {
+    localStorage.setItem("tasks", JSON.stringify(tasks));
+  }, [tasks]);
 
   function addTask(newTaskText) {
     const newTask = {
@@ -29,11 +33,9 @@ function App() {
   function handleCompleteTask(taskId) {
     setTasks(
       tasks.map((task) => {
-        // If this is the task we clicked, flip its completed status (true->false, false->true)
         if (task.id === taskId) {
           return { ...task, completed: !task.completed };
         }
-        // Otherwise, leave it exactly as it is
         return task;
       }),
     );
