@@ -1,5 +1,6 @@
 import { useState, useEffect, useContext } from "react";
 import "./App.css";
+import { DragDropContext, Droppable } from "@hello-pangea/dnd";
 import InputBox from "./components/InputBox.jsx";
 import TaskBox from "./components/TaskBox.jsx";
 import CompletedTasks from "./components/CompletedTasks.jsx";
@@ -44,8 +45,38 @@ function App() {
     );
   }
 
+  function handleDragEnd(result) {
+    const { destination, source } = result;
+
+    if (!destination || destination.index === source.index) {
+      return;
+    }
+
+    setTasks((currentTasks) => {
+      const activeTasks = currentTasks.filter((task) => !task.completed);
+      const reorderedActiveTasks = [...activeTasks];
+      const [movedTask] = reorderedActiveTasks.splice(source.index, 1);
+
+      reorderedActiveTasks.splice(destination.index, 0, movedTask);
+
+      let activeTaskIndex = 0;
+
+      return currentTasks.map((task) => {
+        if (task.completed) {
+          return task;
+        }
+
+        const nextActiveTask = reorderedActiveTasks[activeTaskIndex];
+        activeTaskIndex += 1;
+        return nextActiveTask;
+      });
+    });
+  }
+
   return (
-    <div className={`min-h-screen py-0.5 ${theme === "dark" ? "bg-gray-950 text-white" : "bg-gray-100 text-black"} transition-colors duration-300`}>
+    <div
+      className={`min-h-screen py-0.5 ${theme === "dark" ? "bg-gray-950 text-white" : "bg-gray-100 text-black"} transition-colors duration-300`}
+    >
       {/* <div className="flex justify-center mb-8">
         <button
           onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
@@ -57,18 +88,28 @@ function App() {
 
       <InputBox onAddTask={addTask} />
 
-      {tasks
-        .filter((task) => !task.completed)
-        .map((task) => (
-          <TaskBox
-            key={task.id}
-            taskId={task.id}
-            text={task.text}
-            deleteTask={handleDeleteTask}
-            completeTask={handleCompleteTask}
-            isCompleted={task.completed}
-          />
-        ))}
+      <DragDropContext onDragEnd={handleDragEnd}>
+        <Droppable droppableId="active-tasks">
+          {(provided) => (
+            <div ref={provided.innerRef} {...provided.droppableProps}>
+              {tasks
+                .filter((task) => !task.completed)
+                .map((task, index) => (
+                  <TaskBox
+                    key={task.id}
+                    taskId={task.id}
+                    index={index}
+                    text={task.text}
+                    deleteTask={handleDeleteTask}
+                    completeTask={handleCompleteTask}
+                    isCompleted={task.completed}
+                  />
+                ))}
+              {provided.placeholder}
+            </div>
+          )}
+        </Droppable>
+      </DragDropContext>
 
       <CompletedTasks
         tasks={tasks}
