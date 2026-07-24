@@ -75,7 +75,7 @@ function App() {
 
   return (
     <div
-      className={`min-h-screen py-0.5 ${theme === "dark" ? "bg-gray-950 text-white" : "bg-gray-100 text-black"} transition-colors duration-300`}
+      className={`min-h-screen lg:px-2 lg:py-3 py-0.5 ${theme === "dark" ? "bg-gray-950 text-white" : "bg-gray-100 text-black"} transition-colors duration-300`}
     >
       {/* <div className="flex justify-center mb-8">
         <button

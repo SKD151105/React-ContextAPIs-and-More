@@ -23,7 +23,7 @@ export default function TaskBox({
       <div
         ref={innerRef}
         {...draggableProps}
-        className={`bg-gray-900 border-2 border-gray-700 rounded-xl p-4 mx-4 mb-2 flex items-center justify-between pl-5 ${
+        className={`bg-gray-900 border-2 border-gray-700 rounded-xl p-4 lg:p-5 mx-4 mb-2 flex items-center justify-between pl-5 ${
           isDragging ? "shadow-lg ring-2 ring-blue-500/40" : ""
         }`}
       >

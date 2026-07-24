@@ -1,16 +1,31 @@
-# React + Vite
+# Mini Project 1
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Mini Project 1 is a self-learn React task manager built with Vite.
 
-Currently, two official plugins are available:
+## Implemented So Far
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Add new tasks from the input box by pressing Enter.
+- Reorder active tasks with drag and drop.
+- Mark tasks as completed or move them back to active.
+- Delete tasks from both the active list and the completed list.
+- Expand and collapse the completed tasks section.
+- Persist tasks in local storage so the list survives refreshes.
+- Use a theme context with saved theme preference in local storage.
+- Support a dark-first visual style for the current UI.
 
-## React Compiler
+## Planned Next Steps
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Tags for tasks.
+- Pomodoro timers tied to tasks or study sessions.
+- A dashboard with key task and productivity summaries.
+- Analysis and insights for task progress and usage.
+- Leaderboards or streak tracking for motivation.
+- Any other productivity features that fit the self-learn roadmap.
 
-## Expanding the ESLint configuration
+## Tech Stack
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- Vite
+- Tailwind CSS
+- @hello-pangea/dnd for drag and drop
+- lucide-react for icons

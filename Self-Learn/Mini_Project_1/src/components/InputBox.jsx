@@ -22,7 +22,7 @@ export default function InputBox({ onAddTask }) {
       </div>
 
       <input
-        className="input-field bg-gray-800 border-2 border-gray-700 rounded-xl p-4 focus:border-red-400 w-full outline-none transition-colors duration-200 pl-13 cursor-pointer focus:cursor-text text-gray-400"
+        className="input-field bg-gray-800 border-2 border-gray-700 rounded-xl p-4 lg:p-5 focus:border-red-400 w-full outline-none transition-colors duration-200 pl-13 cursor-pointer focus:cursor-text text-gray-400"
         type="text"
         placeholder="Add a Task... Press [Enter] to save"
         onKeyDown={handleEnterKeyPress}
