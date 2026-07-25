@@ -2,4 +2,13 @@
   background-color: #1b022a;
   color: #efede6;
   font-family: 'Monospace', monospace;
+  background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.5)), url("./assets/bg.png");
+  /* 1. Stop the image from tiling */
+  background-repeat: no-repeat;
+  /* 2. Force it to zoom in/out until it completely covers the container */
+  background-size: cover;
+  /* 3. Keep the focal point in the middle while zooming */
+  background-position: center;
+  /* Force the container to take up 100% of the Viewport Height */
+  min-height: 100vh;
 }

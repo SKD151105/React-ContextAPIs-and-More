@@ -1,8 +1,10 @@
-# Mini Project 2 - Password Generator
+# Mini Project 2 - Password Generator and Currency Converter
 
-Mini Project 2 is a small React + Vite password generator built with Tailwind CSS. It focuses on core React concepts, simple state-driven UI updates, and a practical utility you can extend for real-world use.
+Mini Project 2 is a small React + Vite collection of two practical mini-apps built with Tailwind CSS: a password generator and a currency converter. Both parts focus on core React concepts, state-driven UI updates, and reusable component structure.
 
-## Features
+## Password Generator
+
+### Features
 
 - Generate a random password instantly.
 - Control password length with a slider.
@@ -11,7 +13,7 @@ Mini Project 2 is a small React + Vite password generator built with Tailwind CS
 - Copy the generated password to the clipboard with one click.
 - Automatically regenerate the password whenever the settings change.
 
-## Concepts Implemented
+### Concepts Implemented
 
 - `useState` for managing password length, character options, and the generated output.
 - `useEffect` for regenerating the password when dependencies change.
@@ -20,22 +22,42 @@ Mini Project 2 is a small React + Vite password generator built with Tailwind CS
 - Controlled rendering with React state instead of manual DOM updates.
 - Tailwind utility classes for fast, consistent styling.
 
+## Currency Converter
+
+### Features
+
+- Convert one currency into another using live exchange data.
+- Change the source and target currencies from dropdowns.
+- Update the amount before conversion.
+- Swap the selected currencies quickly.
+- Show the converted value in a clean, card-based layout.
+
+### Concepts Implemented
+
+- `useState` for storing amount, selected currencies, and converted output.
+- Custom hooks with `useCurrencyInfo` to keep API logic separate from the UI.
+- `useEffect` inside the hook to fetch exchange-rate data when the base currency changes.
+- `useId` in the shared input component for accessible form labeling.
+- Form submission handling with `preventDefault` to control conversion manually.
+- Component composition through a reusable input component.
+
 ## Best Practices Followed
 
-- Keep the password logic isolated in a dedicated component.
-- Derive the generated password from current settings instead of storing extra UI state.
-- Use a read-only input for display so users can copy the password without editing it accidentally.
-- Keep the UI minimal and focused on one task.
-- Trigger updates from state changes instead of wiring manual refresh logic.
-- Use semantic labels and form controls so the interface stays accessible and predictable.
+- Keep each feature in a dedicated component so the app stays easy to understand.
+- Separate data-fetching logic into a custom hook instead of mixing it into the UI component.
+- Reuse the same input layout for both currency fields to avoid duplicated markup.
+- Use readable labels and form controls so the interface stays accessible and predictable.
+- Keep conversion and password generation logic tied to state, not manual DOM manipulation.
+- Favor small, focused components that can be extended independently.
 
 ## Practical Tips
 
-- Increase the length and enable special characters for stronger passwords.
+- For the password generator, increase the length and enable special characters for stronger passwords.
 - Copy the password immediately after generation to avoid losing it.
-- If you want to reuse this project, consider adding a strength meter and a password history panel.
-- For a production version, store user preferences in local storage so the selected options persist between visits.
-- If you expand the app later, split generation logic into a helper function to keep the component easier to test.
+- For the currency converter, use the swap button to reverse conversions faster.
+- If you want more accurate or production-ready rates, add error handling and loading states around the exchange-rate fetch.
+- If you reuse this project, store common preferences in local storage so the selected options persist between visits.
+- If you expand either feature later, split logic into helper functions and hooks to keep components easier to test.
 
 ## Run Locally
 
