@@ -1,7 +1,7 @@
-import './App.css';
-import { Cart } from './components/Cart';
-import { ProductList } from './components/ProductList';
-import { CartProvider } from './context/CartProvider';
+import "./App.css";
+import { Cart } from "./components/Cart";
+import { ProductList } from "./components/ProductList";
+import { CartProvider } from "./context/CartProvider";
 
 function App() {
   return (

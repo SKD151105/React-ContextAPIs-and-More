@@ -1,7 +1,7 @@
-import { products } from '../data/products';
-import { useCart } from '../hooks/useCart';
-import { formatCurrency } from '../utils/formatCurrency';
-import { QuantityControl } from './QuantityControl';
+import { products } from "../data/products";
+import { useCart } from "../hooks/useCart";
+import { formatCurrency } from "../utils/formatCurrency";
+import { QuantityControl } from "./QuantityControl";
 
 export function ProductList() {
   const { cartItems, addToCart, removeFromCart } = useCart();
