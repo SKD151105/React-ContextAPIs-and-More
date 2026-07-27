@@ -7,6 +7,7 @@ This folder contains small React practice projects built while learning core con
 - [Mini Project 1](Mini_Project_1/README.md) - a task manager with drag and drop, local storage persistence, and theme support.
 - [Mini Project 2](Mini_Project_2/README.md) - a two-part React app with a password generator and currency converter.
 - [Mini Project 3](Mini_Project_3/README.md) - a simple cart application with product listings, quantity controls, and a running total.
+- [Mini Project 4](Mini_Project_4/README.md) - a cart application built with React Router and Redux Toolkit, with separate products and cart routes.
 
 ## Notes
 
