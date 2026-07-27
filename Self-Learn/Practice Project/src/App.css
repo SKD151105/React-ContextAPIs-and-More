@@ -1,0 +1,10 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background: radial-gradient(circle at top left, rgba(147, 197, 253, 0.38), transparent 22%),
+        linear-gradient(90deg, #0f2d66 0%, #1b4b93 40%, #0f2f4b 70%, #050b17 100%);
+    color: #fff;
+    font-family: 'Monospace', monospace;
+    min-height: 100vh;
+}
