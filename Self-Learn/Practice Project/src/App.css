@@ -1,10 +1,198 @@
+* {
+  box-sizing: border-box;
+}
+
+:root {
+  color-scheme: dark;
+  --page-border: rgba(255, 255, 255, 0.12);
+  --page-surface: rgba(255, 255, 255, 0.09);
+  --page-surface-strong: rgba(255, 255, 255, 0.14);
+  --page-shadow: 0 24px 70px -38px rgba(3, 7, 18, 0.85);
+  --copy-muted: rgba(226, 232, 240, 0.78);
+  --page-gutter: clamp(0.9rem, 2vw, 1.35rem);
+  --section-gap: clamp(0.9rem, 2vw, 1.35rem);
+  --container-padding: clamp(1rem, 2vw, 1.35rem);
+}
+
+html {
+  min-height: 100%;
+  scroll-behavior: smooth;
+}
+
 body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background: radial-gradient(circle at top left, rgba(147, 197, 253, 0.38), transparent 22%),
-        linear-gradient(90deg, #0f2d66 0%, #1b4b93 40%, #0f2f4b 70%, #050b17 100%);
-    color: #fff;
-    font-family: 'Monospace', monospace;
-    min-height: 100vh;
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(147, 197, 253, 0.38), transparent 22%),
+    radial-gradient(circle at bottom right, rgba(34, 197, 94, 0.16), transparent 18%),
+    linear-gradient(90deg, #0f2d66 0%, #1b4b93 40%, #0f2f4b 70%, #050b17 100%);
+  color: #fff;
+  font-family: "Segoe UI Variable Text", "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+  line-height: 1.5;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  margin: 0;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-family: "Segoe UI Variable Display", "Segoe UI", "Trebuchet MS", Arial, sans-serif;
+}
+
+p {
+  margin: 0;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+.page {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+  padding: var(--page-gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--section-gap);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: rgba(207, 250, 254, 0.76);
+}
+
+.hero-title {
+  max-width: 10ch;
+  font-size: clamp(2.35rem, 6vw, 3.75rem);
+}
+
+.section-title {
+  max-width: 16ch;
+  font-size: clamp(1.7rem, 4vw, 2.5rem);
+}
+
+.subsection-title {
+  font-size: clamp(1.3rem, 2.4vw, 1.9rem);
+}
+
+.body-copy {
+  max-width: 68ch;
+  font-size: 0.98rem;
+  line-height: 1.8;
+  color: var(--copy-muted);
+}
+
+.surface-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 2.7rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.7rem 1.15rem;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: rgba(248, 250, 252, 0.92);
+  transition:
+    transform 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease;
+}
+
+.surface-button:hover {
+  background: rgba(255, 255, 255, 0.14);
+  border-color: rgba(255, 255, 255, 0.18);
+  transform: translateY(-1px);
+}
+
+.primary-button {
+  background: linear-gradient(135deg, #67e8f9 0%, #38bdf8 100%);
+  border-color: transparent;
+  color: #082f49;
+  font-weight: 700;
+}
+
+.primary-button:hover {
+  background: linear-gradient(135deg, #a5f3fc 0%, #7dd3fc 100%);
+}
+
+.inline-link {
+  color: rgba(207, 250, 254, 0.92);
+  font-size: 0.95rem;
+  font-weight: 500;
+  transition: color 180ms ease;
+}
+
+.inline-link:hover {
+  color: white;
+}
+
+.field-control {
+  width: 100%;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(2, 6, 23, 0.28);
+  padding: 0.95rem 1rem;
+  font-size: 0.96rem;
+  color: white;
+  outline: none;
+  transition: border-color 180ms ease, background-color 180ms ease;
+}
+
+.field-control::placeholder {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+.field-control:focus {
+  border-color: rgba(165, 243, 252, 0.46);
+  background: rgba(2, 6, 23, 0.38);
+}
+
+.stats-number {
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+}
+
+@media (max-width: 640px) {
+  .page {
+    padding: 0.85rem;
+  }
+
+  .hero-title {
+    max-width: 12ch;
+    font-size: 2.1rem;
+  }
+
+  .section-title {
+    max-width: 100%;
+    font-size: 1.95rem;
+  }
+
+  .surface-button {
+    min-height: 2.55rem;
+    padding: 0.65rem 1rem;
+    font-size: 0.92rem;
+  }
 }
