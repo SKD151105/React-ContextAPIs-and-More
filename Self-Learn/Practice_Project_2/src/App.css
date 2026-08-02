@@ -1,0 +1,20 @@
+@import "tailwindcss";
+
+nav>ul {
+    list-style: none;
+    display: flex;
+    width: 16rem;
+    justify-content: space-around;
+    /* gap: 3rem; */
+    padding: 0 0;
+    margin-top: 1rem;
+}
+
+nav>ul>li>a {
+    text-decoration: none;
+    color: #cd4bf0;
+}
+
+nav {
+    margin: 0 auto;
+}
