@@ -1,20 +1,286 @@
 @import "tailwindcss";
 
-nav>ul {
-    list-style: none;
-    display: flex;
-    width: 16rem;
-    justify-content: space-around;
-    /* gap: 3rem; */
-    padding: 0 0;
-    margin-top: 1rem;
+.app-shell {
+  min-height: 100svh;
 }
 
-nav>ul>li>a {
-    text-decoration: none;
-    color: #cd4bf0;
+.app-header {
+  display: grid;
+  gap: 1rem;
+  padding: 1.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
 }
 
-nav {
-    margin: 0 auto;
+.brand-block {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.app-title {
+  font-size: 2rem;
+}
+
+.nav-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-link,
+.button-link {
+  text-decoration: none;
+}
+
+.nav-link {
+  color: var(--text);
+  padding-bottom: 0.2rem;
+  border-bottom: 1px solid transparent;
+}
+
+.nav-link.active,
+.nav-link:hover {
+  color: var(--text-h);
+  border-color: var(--accent-border);
+}
+
+.header-meta,
+.field-row,
+.action-row,
+.meta-row,
+.progress-row,
+.section-heading,
+.section-heading-small {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.section-heading,
+.section-heading-small,
+.progress-row {
+  justify-content: space-between;
+}
+
+.main-content {
+  padding: 1.5rem;
+}
+
+.page {
+  display: grid;
+  gap: 1rem;
+  text-align: left;
+}
+
+.panel,
+.stat-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+
+.panel {
+  padding: 1rem;
+  display: grid;
+  gap: 0.9rem;
+}
+
+.hero-panel {
+  gap: 0.75rem;
+}
+
+.stats-grid,
+.card-grid {
+  display: grid;
+  gap: 0.9rem;
+}
+
+.stats-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.card-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.stat-card {
+  padding: 1rem;
+  display: grid;
+  gap: 0.25rem;
+}
+
+.stat-card strong {
+  color: var(--text-h);
+  font-size: 1.35rem;
+}
+
+.eyebrow {
+  font-size: 0.82rem;
+  color: var(--text);
+  margin-bottom: 0.15rem;
+}
+
+.page-copy,
+.list-link span,
+.list-row span {
+  color: var(--text);
+}
+
+.pill,
+.badge-outline,
+.toggle-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.65rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: var(--accent-bg);
+  color: var(--text-h);
+}
+
+.toggle-chip.active {
+  border-color: var(--accent-border);
+}
+
+.field {
+  display: grid;
+  gap: 0.35rem;
+  flex: 1 1 220px;
+}
+
+.field span,
+.checkbox-row span {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background: #0f172a;
+  color: var(--text-h);
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+}
+
+.book-form {
+  display: grid;
+  gap: 0.85rem;
+}
+
+.checkbox-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.button-link,
+.primary-button,
+.ghost-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 0.65rem 0.85rem;
+  background: var(--accent-bg);
+  color: var(--text-h);
+  cursor: pointer;
+  font: inherit;
+}
+
+.ghost-button {
+  background: transparent;
+}
+
+.button-link:hover,
+.primary-button:hover,
+.ghost-button:hover {
+  background: #1e293b;
+}
+
+.primary-button:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.danger-button {
+  color: #fca5a5;
+}
+
+.list-stack {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.list-link,
+.list-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.75rem 0.8rem;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text-h);
+  text-decoration: none;
+}
+
+.list-link strong,
+.list-row strong {
+  color: var(--text-h);
+}
+
+.list-link > div {
+  display: grid;
+  gap: 0.15rem;
+}
+
+.book-card {
+  align-content: start;
+}
+
+.book-card-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.progress-block {
+  display: grid;
+  gap: 0.45rem;
+}
+
+.progress-bar {
+  height: 8px;
+  background: #0f172a;
+  border-radius: 999px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.progress-fill {
+  height: 100%;
+  background: #64748b;
+}
+
+.empty-panel,
+.error-text {
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .stats-grid,
+  .card-grid {
+    grid-template-columns: 1fr;
+  }
 }
